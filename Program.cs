@@ -1,5 +1,6 @@
 ﻿using SelectPdf;
 using System;
+using System.IO;
 
 namespace Select_Pdf_POC
 {
@@ -8,27 +9,34 @@ namespace Select_Pdf_POC
         static void Main(string[] args)
         {
             // Define the HTML content with inline styles
-            string htmlContent = @"
-                <html>
-                    <head>
-                        <style>
-                            body {
-                                font-family: Arial, sans-serif;
-                                color: #333;
-                            }
-                            h1 {
-                                color: #0056b3;
-                            }
-                            p {
-                                font-size: 14px;
-                            }
-                        </style>
-                    </head>
-                    <body>
-                        <h1>Welcome to SelectPDF!</h1>
-                        <p>This PDF is generated from HTML content with inline CSS styles.</p>
-                    </body>
-                </html>";
+            //string htmlContent = @"
+            //    <html>
+            //        <head>
+            //            <style>
+            //                body {
+            //                    font-family: Arial, sans-serif;
+            //                    color: #333;
+            //                }
+            //                h1 {
+            //                    color: #0056b3;
+            //                }
+            //                p {
+            //                    font-size: 14px;
+            //                }
+            //            </style>
+            //        </head>
+            //        <body>
+            //            <h1>Welcome to SelectPDF!</h1>
+            //            <p>This PDF is generated from HTML content with inline CSS styles.</p>
+            //        </body>
+            //    </html>";
+            string localHtmlFilePath = @"D:\Select.PDF_POC\SelectPdfDemo.html";//SelectPdfDemo
+
+            // string localHtmlFilePath = @"D:\Select.PDF_POC\HTML\sample.html";
+
+            // Convert the file path to a proper URI
+            string fileUri = new Uri(localHtmlFilePath).AbsoluteUri;
+            string htmlContent = File.ReadAllText(fileUri);
 
             try
             {
@@ -36,7 +44,7 @@ namespace Select_Pdf_POC
                 HtmlToPdf converter = new HtmlToPdf();
 
                 // Set converter options (e.g., margins, page size, etc.)
-                converter.Options.PdfPageSize = PdfPageSize.A4; // Set page size to A4
+                //converter.Options.PdfPageSize = PdfPageSize.A4; // Set page size to A4
                 converter.Options.PdfPageOrientation = PdfPageOrientation.Portrait; // Set orientation
                 converter.Options.MarginTop = 20;
                 converter.Options.MarginBottom = 20;
