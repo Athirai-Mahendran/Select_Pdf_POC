@@ -1,5 +1,6 @@
 ﻿using SelectPdf;
 using System;
+using System.Drawing;
 using System.IO;
 
 namespace Select_Pdf_POC
@@ -8,54 +9,83 @@ namespace Select_Pdf_POC
     {
         static void Main(string[] args)
         {
-            // Define the HTML content with inline styles
-            //string htmlContent = @"
-            //    <html>
-            //        <head>
-            //            <style>
-            //                body {
-            //                    font-family: Arial, sans-serif;
-            //                    color: #333;
-            //                }
-            //                h1 {
-            //                    color: #0056b3;
-            //                }
-            //                p {
-            //                    font-size: 14px;
-            //                }
-            //            </style>
-            //        </head>
-            //        <body>
-            //            <h1>Welcome to SelectPDF!</h1>
-            //            <p>This PDF is generated from HTML content with inline CSS styles.</p>
-            //        </body>
-            //    </html>";
-            string localHtmlFilePath = @"D:\Select.PDF_POC\SelectPdfDemo.html";//SelectPdfDemo
+            //C:\Users\home\source\repos\Select_Pdf_POC\Content
+            string localHtmlFilePath = @"C:\Users\home\source\repos\Select_Pdf_POC\Content\SampleHTML.html";
+            //"D:\\Users\\home\\source\\repos\\Select_Pdf_POC\\Content\\SelectPdfDemo.html"
 
-            // string localHtmlFilePath = @"D:\Select.PDF_POC\HTML\sample.html";
-
+            //string localHtmlFilePath = @"D:\Select.PDF_POC\SelectPdfDemo.html";
+            if (!File.Exists(localHtmlFilePath))
+            {
+                Console.WriteLine("File not found: " + localHtmlFilePath);
+                return;
+            }
             // Convert the file path to a proper URI
-            string fileUri = new Uri(localHtmlFilePath).AbsoluteUri;
-            string htmlContent = File.ReadAllText(fileUri);
+            //string fileUri = new Uri(localHtmlFilePath).AbsoluteUri;
+            string htmlContent = File.ReadAllText(localHtmlFilePath);
 
             try
             {
                 // Create an instance of the HTML to PDF converter
                 HtmlToPdf converter = new HtmlToPdf();
 
-                // Set converter options (e.g., margins, page size, etc.)
-                //converter.Options.PdfPageSize = PdfPageSize.A4; // Set page size to A4
-                converter.Options.PdfPageOrientation = PdfPageOrientation.Portrait; // Set orientation
-                converter.Options.MarginTop = 20;
-                converter.Options.MarginBottom = 20;
-                converter.Options.MarginLeft = 20;
-                converter.Options.MarginRight = 20;
+                // Basic Page Setup
+                converter.Options.PdfPageSize = PdfPageSize.A4;
+                converter.Options.PdfPageOrientation = PdfPageOrientation.Portrait;
+                converter.Options.MarginTop = 60;    // Space for header
+                converter.Options.MarginBottom = 60;  // Space for footer
+                converter.Options.MarginLeft = 40;
+                converter.Options.MarginRight = 40;
+
+                // 1. Simple HTML Header and Footer
+                converter.Options.DisplayHeader = true;
+                converter.Header.Height = 10;
+                converter.Header.FirstPageNumber = 1;
+                converter.Options.DisplayFooter = true;
+                converter.Footer.Height = 10;
+
+
+                var HtmlContent = @"
+                <div style='text-align:center; color:#444; font-size:14px; padding-top:10px;'>
+                    <h2 style='margin:0; color:#447; font-size:16px;'>Company Name</h2>
+                    <div>Annual Report 2024</div>
+                </div>";
+
+                // Add a header to the PDF
+                //PdfTextSection header = new PdfTextSection(0, 10, "My Custom Header", new System.Drawing.Font("Arial", 12))
+                //{
+                //    HorizontalAlign = PdfTextHorizontalAlign.Center
+                //};
+                //PdfTextSection headerText = new PdfTextSection(60, 10, "Select.PDF Custom Header", new System.Drawing.Font("Arial", 12));
+                //headerText.HorizontalAlign = PdfTextHorizontalAlign.Right;
+                //converter.Header.Add(headerText);
+
+                //converter.Header.Add(header);
 
                 // Convert HTML string to PDF
                 PdfDocument doc = converter.ConvertHtmlString(htmlContent);
 
+                // create a new pdf font
+                PdfFont font2 = doc.AddFont(PdfStandardFont.Helvetica);
+                font2.Size = 12;
+                font2.IsUnderline = true;
+
+                // get image path
+                string imgFile = @"C:\Users\home\source\repos\Select_Pdf_POC\Content\images\desk.jpg";
+
+                // header template (100 points in height) with image element
+                doc.Header = doc.AddTemplate(doc.Pages[0].ClientRectangle.Width, 100);
+                PdfImageElement img1 = new PdfImageElement(50, 50, imgFile);
+                doc.Header.Add(img1);
+
+
+                doc.Footer = doc.AddTemplate(doc.Pages[0].ClientRectangle.Width, 100);
+                PdfTextElement text = new PdfTextElement(0, 50,
+                    "Footer text: Document generated by Select.Pdf", font2);
+                text.ForeColor = Color.Beige;
+                doc.Footer.Add(text);
+
                 // Save the PDF document to a file
-                string outputFilePath = "D:\\Select.PDF_POC\\PDF\\output.pdf";
+                string outputFilePath = "D:\\Select.PDF_POC\\PDF\\output_SampleHtml3.pdf";
                 doc.Save(outputFilePath);
 
                 // Close the document
@@ -77,5 +107,8 @@ namespace Select_Pdf_POC
         //doc.Close();
         //Console.WriteLine("PDF created.");
     }
+
 }
+
+
 

@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+body h3 {
+    color: #e4800d;
+    content: "Hello this is from external css";
+    font-size: 20px;
+}
+h1 {
+    color: #0056b3;
+}
+p {
+    font-size: 14px;
+}

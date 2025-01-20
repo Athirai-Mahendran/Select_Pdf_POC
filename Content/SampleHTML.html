@@ -1,0 +1,1234 @@
+﻿
+
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="/Scripts/Material Design Bootstrap_files/css/bootstrap.css" rel="stylesheet" />
+    <link href="/Scripts/Material Design Bootstrap_files/css/jquery-ui.css" rel="stylesheet" />
+    <script src="/scripts/jquery-ui.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+
+        table {
+            border-collapse: collapse;
+            font-size: 17px;
+            width: 100%;
+            border: 1px;
+        }
+
+            table td {
+                border: 1px solid black;
+                padding-left: 10px;
+            }
+
+        .riskAssement {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 3px;
+            border: 1px;
+        }
+
+        #pageHeader {
+            text-align: center;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .tdinputfontsize {
+            font-size: 17px !important;
+            font-weight: bold;
+        }
+
+        .italicDiv {
+            font-size: 16px;
+            font-style: italic;
+            text-align: justify;
+        }
+
+        #tdborder {
+            border: none;
+            padding-left: 0px;
+            font-size: 12px
+        }
+
+        input[type='checkbox'] {
+            height: 20px;
+            width: 20px;
+            border: 1px solid black;
+            vertical-align: middle;
+            position: relative;
+            pointer-events: none !important;
+        }
+
+        tr.noBorder td {
+            border-top-style: hidden;
+        }
+
+        .riskAssement td {
+            /* height:25px; */
+            height: 28px;
+            font-size: 15px
+        }
+
+        #alert td {
+            height: 30px;
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70px;
+            overflow: hidden;
+        }
+
+        .element-image {
+            max-width: 80%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+
+        .image-over {
+            height: 95px;
+        }
+
+        .checklist-container {
+            width: 100%;
+            height: 1123px;
+            margin: auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+    </style>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+
+    <div class="container" id="pageHeader">
+
+        <p style="font-size:28px;"><b>Certificate of Test and Thorough Examination  of  Mobile/Crawler Crane</b></p>
+        <p style='font-size: 18px;'>This report is in compliance with Local Regulation 2/2010, Ministerial Resolution No.(32) for 1982 and (LOLER)1998</p>
+    </div>
+    <div>
+        <input type="hidden" id="hidDiffJson" name="hidDiffJson" />
+        <table border="1" id="alert">
+
+            <tr>
+                <td colspan="2">Certificate Number:</td>
+                <td class="tdinputfontsize" colspan="2"><span id='txtcertificateNumber' name="txtcertificateNumber" value="">CSSSC/NAC/2025/00022</span></td>
+                <td colspan="2">Date of Thorough Examination:</td>
+                <td class="tdinputfontsize" colspan="2">
+                    <span id='dteexaminationDate' name="dteexaminationDate" value="">20/01/2025</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="1"> W/O Number:</td>
+                <td class="tdinputfontsize" colspan="1">
+                    <span id='txtWorkOrderNO' name="txtWorkOrderNO" value="">SO/2025/CSSSC/00004</span>
+                </td>
+                <td colspan="1">ER Number</td>
+                <td colspan="1" class="tdinputfontsize"><span id='txtERNumber' name="txtERNumber" value="">Paragraphs</span></td>
+                <td colspan="2">Date of Last Thorough Examination:</td>
+                <td class="tdinputfontsize" colspan="2"><span id='dtelastExaminationDate' name="dtelastExaminationDate" value="">20/01/2025</span></td>
+            </tr>
+
+
+            <tr>
+                <td colspan="2">Customer Order Number: </td>
+                <td colspan="2" class="tdinputfontsize"><span id='txtcustomerOrderNumber' name="txtcustomerOrderNumber" value="">100% ADVANCE</span></td>
+                <td colspan="2">Due Date of Next Thorough Examination:</td>
+                <td colspan="2" class="tdinputfontsize">
+                    <span id='ddlnextExaminationDate' name="ddlnextExaminationDate" value="">19/01/2026</span>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">Type of Examination</td>
+                <td colspan="6" id="ddlExaminationtype" name="ddlExaminationtype">
+                    <i class="fa fa-square-o" aria-hidden="true"></i>
+                    <label for="ddlExaminationtype">
+                        INITIAL
+                    </label>&nbsp;
+                    <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                    <label for="ddlExaminationtype">
+                        IN-SERVICE(Periodic)
+                    </label>&nbsp;
+                    <i class="fa fa-square-o" aria-hidden="true"></i>
+                    <label for="ddlExaminationtype">
+                        OTHERS(Specify)
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">National or International standards or Technical Specification used:</td>
+                <td colspan="4" class="tdinputfontsize"><span id='txtinternationalSpecUsed' name="txtinternationalSpecUsed" value="">BS 7121-2-1,3:2012 CSSSC/TP/01/MC_Issue: 01, Rev: 09</span></td>
+
+
+            </tr>
+
+
+        </table>
+    </div>
+
+    <div>
+        <table>
+            <tr>
+                <td rowspan="4">
+                    Name and Address of Owner or Occupier:<br />
+                    <span class="tdinputfontsize demo" id="txtclientLocation" name="txtclientLocation" style="line-height: 1; margin: 0; padding: 0;">
+
+                        PERFECTION FRONTIER CONTRACTING LLC<br />BAY VIEW TOWER , MARASI DRIVE,  BUSINESS BAY<br />PO BOX: 50854<br />Dubai<br />United Arab Emirates
+                    </span>
+                </td>
+                <td rowspan="4">
+                    Address of Premises at which the examination was made:<br />
+
+                    <span class="tdinputfontsize demo" id="txtjobLocation" name="txtjobLocation" style="line-height: 1; margin: 0; padding: 0;">
+                        PERFECTION FRONTIER CONTRACTING LLC<br />BAY VIEW TOWER , MARASI DRIVE,  BUSINESS BAY<br />PO BOX: 50854<br />Dubai<br />United Arab Emirates
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <p style='font-size: 18px;margin:1px;'>Description and Identification of the Equipment:</p>
+    <div>
+        <table class="column1">
+            <tr>
+                <td colspan="2" style="width:25%">Manufacturer’s Name:</td>
+                <td colspan="6" style="width: 75%; font-weight: bold;" id='txtmanufacutrerName' name="txtmanufacutrerName" value="">Paragraphs are everywhere. In fact, at the high risk of stating the obvious, you are reading one now</td>
+
+
+            </tr>
+            <tr>
+                <td colspan="2" style="width:25%">Type/Model of Crane & Nature of<br />Power:</td>
+                <td colspan="6" style="width: 75%; font-weight: bold;" id='txtModelDescription' name="txtModelDescription" value="">Paragraphs are everywhere. In fact, at the high risk of stating the obvious, you are reading one now. Despite their ubiquity, we frequently neglect their presentation. This is a mistake.</td>
+
+
+            </tr>
+            <tr>
+                <td colspan="2" style="width:25%">Date of Manufacture of Crane</td>
+                <td colspan="2" style="width: 25%; font-weight: bold;" id='txtcraneManufactureDate' name="txtcraneManufactureDate" value="">Paragraphs are e</td>
+                <td colspan="2" style="width:25%">Chassis No:</td>
+                <td colspan="2" style="width: 25%; font-weight: bold;" id='txtchasisNo' name="txtchasisNo" value="">Paragraphs are every</td>
+
+
+            </tr>
+            <tr>
+                <td colspan="2" style="width:25%">Maker's Serial No</td>
+                <td colspan="2" style="width:25%; font-weight: bold;" id='txtMakersSerialNo' name="txtMakersSerialNo">Paragraphs are every</td>
+                <td colspan="2" style="width:25%" id='txttrafficPlateNo' name="txttrafficPlateNo">Traffic Plate No:</td>
+                <td colspan="2" style="width:25%; font-weight: bold;">Paragraphs are every</td>
+
+
+            </tr>
+            <tr>
+                <td colspan="2" style="width:25%">Owner's ID No:</td>
+                <td colspan="2" style="width: 25%; font-weight: bold;" id='txtownerIdNo' name="txtownerIdNo" value="">Paragraphs are every</td>
+                <td colspan="2" style="width:25%">Make & Type of Derricking</td>
+                <td colspan="2" style="width: 25%; font-weight: bold;" id='txtderrickingType' name="txtderrickingType">Paragraphs are everywhere. In </td>
+
+
+            </tr>
+            <tr>
+                <td colspan="2" style="width:25%">Capacity:</td>
+                <td colspan="2" style="width: 25%; font-weight: bold;" id='txtcapacity' name="txtcapacity" value="">Paragraphs are every</td>
+                <td colspan="2" style="width:25%">Wire rope Dia & No.of Falls:</td>
+                <td colspan="2" style="width: 25%; font-weight: bold;" id='txtwireRope' name="txtwireRope">Paragraphs are everywhere. In fact, at t</td>
+
+
+            </tr>
+            <tr>
+                <td colspan="2" style="width:25%">Automatic Safe Load Indicator</td>
+                <td colspan="2" style="width: 25%; font-weight: bold;" id="txtsafeLoadIndicator" name="txtsafeLoadIndicator" value="">Paragraphs are every</td>
+                <td colspan="2" style="width:25%">Outrigger/Crawler(Fully/Mid)</td>
+                <td colspan="2" style="width: 25%; font-weight: bold;" id="txtoutrigger" name="txtoutrigger" value="">Paragraphs are everywhere. In </td>
+
+
+            </tr>
+            <tr>
+                <td colspan="2" style="width:25%">Slew (360°/Front/Rear/Side)</td>
+                <td colspan="2" style="width: 25%; font-weight: bold;" id="txtslew" name="txtslew">Paragraphs are every</td>
+                <td colspan="2" style="width:25%">Counter weight configuration:</td>
+                <td colspan="2" style="width: 25%; font-weight: bold;" id="txtcounterWeight" name="txtcounterWeight">Paragraphs are every</td>
+
+
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <table id="MbCnTable alert" style="margin-top:6px;">
+            <thead>
+                <tr>
+                    <td colspan="2" style="width: 25%; text-align: center;">Length of the Jib (Meter)</td>
+                    <td colspan="2" style="width: 25%; text-align: center;">Radius (Meter)</td>
+                    <td colspan="2" style="width: 25%; text-align: center;">Safe Working Load (Tonne)</td>
+                    <td colspan="2" style="width: 25%; text-align: center;">Test Load (Tonne)</td>
+
+                </tr>
+
+            </thead>
+
+
+            <tr style="text-align:center;">
+                <td class="tdinputfontsize" colspan="2"><span style="width:100%" name="txtjib_0" id='txtjib_0' value=" " />Paragraphs</td>
+                <td class="tdinputfontsize" colspan="2"><span style="width:100%" name="txtradius_0" id='txtradius_0' value=" " />Paragraphs</td>
+                <td class="tdinputfontsize" colspan="2"><span style="width:100%" name="txtsafeWorkingLoad_0" id='txtsafeWorkingLoad_0' value=" " />Paragraphs</td>
+                <td class="tdinputfontsize" colspan="2"><span style="width:100%" name="txttestLoad_0" id='txttestLoad_0' value=" " />Paragraphs</td>
+            </tr>
+            <tr style="text-align:center;">
+                <td class="tdinputfontsize" colspan="2"><span style="width:100%" name="txtjib_1" id='txtjib_1' value=" " /> Paragraph</td>
+                <td class="tdinputfontsize" colspan="2"><span style="width:100%" name="txtradius_1" id='txtradius_1' value=" " /> Paragraph</td>
+                <td class="tdinputfontsize" colspan="2"><span style="width:100%" name="txtsafeWorkingLoad_1" id='txtsafeWorkingLoad_1' value=" " /> Paragraph</td>
+                <td class="tdinputfontsize" colspan="2"><span style="width:100%" name="txttestLoad_1" id='txttestLoad_1' value=" " /> Paragraph</td>
+            </tr>
+            <tr>
+                <td colspan="2">Details of Test Equipment</td>
+                <td colspan="6" class="tdinputfontsize"><span style="width:100%" id="txttestEquipment" name="txttestEquipment" value="">Paragraphs are everywhere. In fact, at the high risk of stating the obvious, you are reading one now. Despite their ubiquity, we frequently </span></td>
+            </tr>
+        </table>
+
+    </div>
+    <div style="pointer-events:none">
+        <table>
+            <tr style="border-bottom:hidden;">
+                <td style="border-right: hidden;"></td>
+                <td></td>
+                <td style="border-right: hidden;">Was the examination carried out:</td>
+                <td></td>
+            </tr>
+            <tr style="border-bottom:hidden;">
+                <td style="border-right: hidden;"> Is this the first examination after installation or<br /> assembly at a new site or location?</td>
+                <td style="text-align:left">
+                    <label>
+                        <span>YES<i class="fa fa-square-o" aria-hidden="true" style="margin-left:6px"></i></span>&nbsp;&nbsp;
+                        <span>NO<i class="fa fa-check-square-o" aria-hidden="true" style="margin-left:6px"></i></span>
+                    </label>
+                </td>
+                <td style="border-right: hidden;">Within an interval of 6 months?</td>
+                <td>
+                    <label id="radchk6MonthsInterval" name="radchk6MonthsInterval">
+                        <span>YES<i class="fa fa-check-square-o" aria-hidden="true" style="margin-left:6px"></i></span>&nbsp;&nbsp;
+                        <span>NO<i class="fa fa-square-o" aria-hidden="true" style="margin-left:6px"></i></span>
+                    </label>
+                </td>
+            </tr>
+            <tr style="border-bottom:hidden;">
+                <td style="border-right: hidden;"></td>
+                <td></td>
+                <td style="border-right: hidden;">Within an interval of 12 months?</td>
+                <td>
+                    <label id="radchk12MonthsInterval" name="radchk12MonthsInterval">
+                        <span>YES<i class="fa fa-check-square-o" aria-hidden="true" style="margin-left:6px"></i></span>&nbsp;&nbsp;
+                        <span>NO<i class="fa fa-square-o" aria-hidden="true" style="margin-left:6px"></i></span>
+                    </label>
+                </td>
+            </tr>
+            <tr style="border-bottom:hidden;">
+                <td style="border-right: hidden;">If the answer of the above question is YES,<br /> has the equipment been installed correctly?</td>
+                <td>
+                    <label id="chktestName" name="chktestName">
+                        <span>YES<i class="fa fa-check-square-o" aria-hidden="true" style="margin-left:6px"></i></span>&nbsp;&nbsp;
+                        <span>NO<i class="fa fa-square-o" aria-hidden="true" style="margin-left:6px"></i></span>
+                    </label>
+                </td>
+                <td style="border-right: hidden;">In accordance with an examination scheme?</td>
+                <td>
+                    <label id="radexamScheme" name="radexamScheme">
+                        <span>YES<i class="fa fa-check-square-o" aria-hidden="true" style="margin-left:6px"></i></span>&nbsp;&nbsp;
+                        <span>NO<i class="fa fa-square-o" aria-hidden="true" style="margin-left:6px"></i></span>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td style="border-right: hidden;"></td>
+                <td></td>
+                <td style="border-right: hidden;">After the occurrence of exceptional circumstances?</td>
+                <td>
+                    <label>
+                        <span>YES<i class="fa fa-square-o" aria-hidden="true" style="margin-left:6px"></i></span>&nbsp;&nbsp;
+                        <span>NO<i class="fa fa-check-square-o" aria-hidden="true" style="margin-left:6px"></i></span>
+                    </label>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <table class="table-responsive" id="alert" style="margin-top:8px;">
+            <tr>
+                <td colspan="6" style="width:75%">Identification of any part found to have a defect which is or could become a danger to person and description of the defect:<b> (if none state NONE)</b></td>
+                <td colspan="2" class="tdinputfontsize"><span style="width:25%" name="txtdefect" id='txtdefect' value="">NONE</span></td>
+            </tr>
+            <tr>
+                <td colspan="6" style="width:75%">Is the above a defect which is of immediate danger to persons? </td>
+                <td colspan="6" class="tdinputfontsize" style="width:25%">
+
+                    <label>
+                        <span style="font-size:18px;">YES<i class="fa fa-square-o" aria-hidden="true" style="margin-left:6px"></i></span>
+                        <span style="margin-left: 12px; padding-left: 7px; font-size: 18px;">NO<i class="fa fa-check-square-o fa-sm" aria-hidden="true" style="margin-left:6px"></i></span>
+                    </label>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6" style="width:75%">Is the above a defect which is not yet but could become a danger to persons? (if YES state the date by when)</td>
+                <td colspan="2" style="width:25%">
+                    <span id='txtdangerToPerson' name="txtdangerToPerson" class="tdinputfontsize">Yes by:NIL</span>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6" style="width:75%">Particulars of any repair, renewal or alteration required to remedy the defect identified above:</td>
+                <td colspan="2" style="width:25%" class="tdinputfontsize"> <span id="txtremedy" name="txtremedy">NONE</span></td>
+            </tr>
+            <tr>
+                <td colspan="6" style="width:75%">Particulars of any tests carried out as part of the examination: <b>(if none state NONE)</b></td>
+                <td colspan="2" style="width:25%" class="tdinputfontsize"> <span id="txttests" name="txttests">Paragraphs are everywhere. In fact, at the high risk of stating the obvious, you are reading one now</span></td>
+
+            </tr>
+
+            <tr>
+                <td colspan="6" style="width:75%">IS THIS EQUIPMENT SAFE TO USE?</td>
+                <td class="tdinputfontsize" colspan="2" style="width:25%"><span id='txtchkSafe' name="txtchkSafe">Yes</span></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="width:25%">Remarks (If any) </td>
+                <td class="tdinputfontsize" colspan="6" style="width:75%"><span id='txtremarks' name="txtremarks" style="white-space: pre-wrap;word-wrap: break-word;">Paragraphs are everywhere. In fact, at the high risk of stating the obvious, you are reading one now. Despite their ubiquity, we frequently neglect th</span></td>
+
+            </tr>
+
+
+        </table>
+    </div>
+
+
+    <div style="margin-left: 10px; margin-right: 10px; padding-left: 7px; padding-right: 7px; margin-top: 6px;">
+        Note:  <br />● This certificate cannot be reproduced except in full without the approval of the Inspection Body and the client
+        ● The certificate's validity ceases in the event of any major repair or alteration, in which case the item must be retested
+        ● This certificate has been issued without prejudice to any party
+        ● Neither the Inspection Body nor the Inspector shall, under any circumstances, be responsible or liable to any person for any act, omission, default, or negligence whatsoever
+        ● The safe use instructions and checklist mentioned on the back of this certificate are part of the certificate. You are kindly requested to implement these safe instructions
+        ● The above inspection results are exclusively related to the item(s) inspected
+        ● This Inspection Certificate will only be valid if the equipment is operated by competent personnel, within its capacity, and for its intended use, as specified within the design limits and according to applicable local regulations.
+
+        <br />
+
+    </div>
+    <div>
+
+        <div>
+
+            <table style="margin-top:5px;" class="alert-success">
+
+                <tr>
+                    <td style="width: 33%; height: 15px; text-align: center">Name of the Inspection Engineer</td>
+                    <td style="width: 33%; height: 15px; text-align: center">Signature of the Inspection Engineer</td>
+                    <td style="width:16%;height:15px;text-align:center">Date of Certificate</td>
+                    <td style="text-align: center; width:18%; ">Scan here to verify the Authenticity</td>
+                </tr>
+                <tr>
+                    <td style="width: 30%; text-align: center; font-weight: bolder; vertical-align: bottom;"><span id='txtExaminerQualification' name="txtExaminerQualification"> Ejas  Babu</span></td>
+
+                    <td style="width: 34%; text-align: center; font-weight: bolder; vertical-align: bottom; " class="image-over">
+                        <div class="flex-container">
+                            <img src="data:image/png;base64,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" id="EngnieerSignature" name="EngnieerSignature" class="element-image" />
+                        </div>
+                    </td>
+
+                    <td style="width:15%;height:15px;text-align:center" id='dteDateCertificate' name="dteDateCertificate" value="" class="tdinputfontsize">20/01/2025</td>
+                    <td style="width:22%; text-align: center; font-weight: bolder" rowspan="3">
+
+                        <span><img src=data:image/png;base64,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 style="width:90px; height:60px;" name="txtbarcode" id="txtbarcode" /></span>
+                    </td>
+                </tr>
+
+                <tr class="column2">
+                    <td colspan="2" style="width:66%;">
+                        Name and Address of the Firm,Company,Association or Person undertaking the thorough examination:
+                        <br /><span id='txtAddress' name="txtAddress" style="font-size:17px;margin-top:10px"><b>CARL STAHL SAFETY &amp; SECURITY CONSULTANCY, P.O.BOX: 26607, DUBAI, U.A.E.</b></span>
+                    </td>
+
+                    <td rowspan="3" style="text-align: center;">Certificate Printed by: <br /><span id='txtCertificateprepared' name="txtCertificateprepared" style="font-weight: bolder;"><b></b></span></td>
+                </tr>
+
+            </table>
+
+        </div>
+    </div>
+    <div>
+
+        <p style='font-size:17px;'> CRT-CSSSC-08, ISSUE #01, REV #07, DATE: 20-03-2024</p>
+
+    </div>
+
+
+    <br />
+
+    <div style="page-break-before: always; width: 100%;"> </div>
+
+    <div style="margin-top:15px;">
+        <div border="1" style="text-align:center;border:1px solid black">
+
+            <p style="font-size: 20px;"><b> Inspection Details of Mobile / Crawler  Crane</b></p>
+
+        </div>
+
+
+        <div style="margin-top:5px">
+            <table class="tdwidth">
+
+                <tr>
+                    <td>Certificate Number:</td>
+                    <td class="tdinputfontsize"><span width="100%" id='txtcertificateNumber' name="txtcertificateNumber" value="">CSSSC/NAC/2025/00022</span></td>
+                    <td>Work Order Number:</td>
+                    <td class="tdinputfontsize"><span width="100%" id='txtWorkOrderNO' name="txtWorkOrderNO" value="">SO/2025/CSSSC/00004</span></td>
+                </tr>
+
+            </table>
+        </div>
+
+
+        <div style="margin-top:6px;">
+            <span style="font-size: 17px;text-align: left">
+                Status: S = Satisfactory, R = Finding, X = Critical Finding, N/A = Not Applicable.
+            </span>
+        </div>
+
+        <div>
+            <table class="riskAssement" style="font-size: 20px;">
+                <tr>
+                    <td style="width: 6%; color: black; text-align: center;">Sr.<br />No.</td>
+                    <td style="text-align: center; width: 50%;color:black;">Inspection Item</td>
+                    <td style="width: 10%; text-align: center;color:black;">Status</td>
+                    <td style="width: 34%; text-align: center;color:black;">Remarks</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        1
+                    </td>
+                    <td>
+                        Risk Assessment*
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_1" name="ddlSRNo_1" style="width:100%;text-align:center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_1" name="txtRemarks_1" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        2
+                    </td>
+                    <td>
+                        Monthly Inspection Record
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_2" name="ddlSRNo_2" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_2" name="txtRemarks_2" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        3
+                    </td>
+                    <td>
+                        Maintenance Record
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_3" name="ddlSRNo_3" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_3" name="txtRemarks_3" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        4
+                    </td>
+                    <td>
+                        Repair/Modification Records
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_4" name="ddlSRNo_4" style="width: 100%; text-align: center">
+                            X
+                        </span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_4" name="txtRemarks_4" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        5
+                    </td>
+                    <td>
+                        Competencey of the operator
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_5" name="ddlSRNo_5" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_5" name="txtRemarks_5" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        6
+                    </td>
+                    <td>
+                        Availability of suitable PPE onsite
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_6" name="ddlSRNo_6" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_6" name="txtRemarks_6" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        7
+                    </td>
+                    <td>
+                        Torque test (As appicable)
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_7" name="ddlSRNo_7" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_7" name="txtRemarks_7" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        8
+                    </td>
+                    <td>
+                        Wire Rope Termination
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_8" name="ddlSRNo_8" style="width: 100%; text-align: center" value="">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_8" name="txtRemarks_8" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        9
+                    </td>
+                    <td>
+                        Level Indicator( ±0.5% of slope)
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_9" name="ddlSRNo_9" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_9" name="txtRemarks_9" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        10
+                    </td>
+                    <td>
+                        Main Hoist Winch
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_10" name="ddlSRNo_10" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_10" name="txtRemarks_10" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        11
+                    </td>
+                    <td>
+                        Auxiliary Hoist Winch
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_11" name="ddlSRNo_11" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_11" name="txtRemarks_11" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        12
+                    </td>
+                    <td>
+                        Load Test (102.5% to 110%)
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_12" name="ddlSRNo_12" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_12" name="txtRemarks_12" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        13
+                    </td>
+                    <td>
+                        NDT (As applicable)
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_13" name="ddlSRNo_13" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_13" name="txtRemarks_13" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        14
+                    </td>
+                    <td>
+                        External Light
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_14" name="ddlSRNo_14" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_14" name="txtRemarks_14" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        15
+                    </td>
+                    <td>
+                        Housekeeping
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_15" name="ddlSRNo_15" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_15" name="txtRemarks_15" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        16
+                    </td>
+                    <td>
+                        Machine Guards
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_16" name="ddlSRNo_16" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_16" name="txtRemarks_16" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        17
+                    </td>
+                    <td>
+                        Operator / Driver Cabin
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_17" name="ddlSRNo_17" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span iid="txtRemarks_17" name="txtRemarks_17" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        18
+                    </td>
+                    <td>
+                        Access Steps
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_18" name="ddlSRNo_18" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_18" name="txtRemarks_18" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        19
+                    </td>
+                    <td>
+                        Fire Extinguisher
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_19" name="ddlSRNo_19" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_19" name="txtRemarks_19" style="width:100%"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="text-align:center">
+                        20
+                    </td>
+                    <td>
+                        Tyres/crawler
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_20" name="ddlSRNo_20" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_20" name="txtRemarks_20" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        21
+                    </td>
+                    <td>
+                        Hydraulic Systems
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_21" name="ddlSRNo_21" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_21" name="txtRemarks_21" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        22
+                    </td>
+                    <td>
+                        Reverse Alarm
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_22" name="ddlSRNo_22" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_22" name="txtRemarks_22" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        23
+                    </td>
+                    <td>
+                        Outriggers/Track (assess based on ground bearing pressure and actual
+                        load)
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_23" name="ddlSRNo_23" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_23" name="txtRemarks_23" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        24
+                    </td>
+                    <td>
+                        Anti Two Block Device
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_24" name="ddlSRNo_24" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_24" name="txtRemarks_24" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        25
+                    </td>
+                    <td>
+                        Rotating Upper Structure
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_25" name="ddlSRNo_25" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_25" name="txtRemarks_25" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        26
+                    </td>
+                    <td>
+                        Counterweight Frame
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_26" name="ddlSRNo_26" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_26" name="txtRemarks_26" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        27
+                    </td>
+                    <td>
+                        Boom & its Extensions
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_27" name="ddlSRNo_27" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_27" name="txtRemarks_27" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        28
+                    </td>
+                    <td>
+                        Wear Pads
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_28" name="ddlSRNo_28" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_28" name="txtRemarks_28" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        29
+                    </td>
+                    <td>
+                        Sheaves
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_29" name="ddlSRNo_29" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_29" name="txtRemarks_29" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        30
+                    </td>
+                    <td>
+                        Wire Rope(As per ISO 4309 table 3 to 6)
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_30" name="ddlSRNo_30" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_30" name="txtRemarks_30" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        31
+                    </td>
+                    <td>
+                        Main Hook Block (Hook opening < 10%)
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_31" name="ddlSRNo_31" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_31" name="txtRemarks_31" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        32
+                    </td>
+                    <td>
+                        Auxilary Block Hook (Hook opening< 10%)
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_32" name="ddlSRNo_32" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_32" name="txtRemarks_32" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        33
+                    </td>
+                    <td>
+                        Capacity & Weight Marking
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_33" name="ddlSRNo_33" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_33" name="txtRemarks_33" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        34
+                    </td>
+                    <td>
+                        Safety Latch
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_34" name="ddlSRNo_34" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_34" name="txtRemarks_34" style="width:100%"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        35
+                    </td>
+                    <td>
+                        Wire Rope Reeving
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_35" name="ddlSRNo_35" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_35" name="txtRemarks_35" style="width:100%"></span>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="text-align:center">
+                        36
+                    </td>
+                    <td>
+                        Electrical Cables
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_36" name="ddlSRNo_36" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_36" name="txtRemarks_36" style="width:100%"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="text-align:center">
+                        37
+                    </td>
+                    <td>
+                        Function and calibration check of Anemometer
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_37" name="ddlSRNo_37" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_37" name="txtRemarks_37" style="width:100%"></span>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td style="text-align:center">
+                        38
+                    </td>
+                    <td>
+                        Automatic safe load indicator(+-5% for all reading and overload 102.5% to 110% of rated capacity)
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_38" name="ddlSRNo_38" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_38" name="txtRemarks_38" style="width:100%;" class="max-width" maxlength="70"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        39
+                    </td>
+                    <td>
+                        FlyJib
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_39" name="ddlSRNo_39" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_39" name="txtRemarks_39" style="width:100%"></span>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td style="text-align:center">
+                        40
+                    </td>
+                    <td>
+                        General Condition
+                    </td>
+                    <td style="text-align:center">
+                        <span id="ddlSRNo_40" name="ddlSRNo_40" style="width: 100%; text-align: center">X</span>
+                    </td>
+                    <td class="tdperfect">
+                        <span id="txtRemarks_40" name="txtRemarks_40" style="width:100%"></span>
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td colspan="4" style="font-size:16px;height:8px">
+                        <span style="height: 5px">
+
+                            *Check for: Safe access and egress, safe condition of equipment used for testing/examination, site safety for conducting the load test (if applicable), and the competency of personnel involved in the operation of the equipment.
+
+                        </span>
+                    </td>
+
+                </tr>
+
+            </table>
+
+        </div>
+        <div>
+
+            <p style='font-size:17px;'> CRT-CSSSC-08, ISSUE #01, REV #07, DATE: 20-03-2024 </p>
+            <div style="page-break-before: always; width: 100%;"> </div>
+            <br />
+            <br />
+
+
+        </div>
+    </div>
+    <div class="checklist-container">
+        <table>
+            <tr>
+                <td>Certificate Number:</td>
+                <td class="tdinputfontsize"><span width="100%" id='txtcertificateNumber' name="txtcertificateNumber" value="">CSSSC/NAC/2025/00022</span></td>
+                <td>Work Order Number:</td>
+                <td class="tdinputfontsize"><span width="100%" id='txtWorkOrderNO' name="txtWorkOrderNO" value="">SO/2025/CSSSC/00004</span></td>
+            </tr>
+            <tr>
+                <td colspan="4" style="font-size:17px;height:8px">
+                    <span>Photographs</span>
+                </td>
+            </tr>
+
+            <tr>
+
+
+
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Multiple Image Resizing</title>
+                    <style>
+                        .image-container {
+                            width: 100%;
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 10px;
+                            justify-content: center;
+                        }
+
+                        .resizable-image {
+                            width: 100%;
+                            height: auto;
+                            max-width: 500px;
+                            max-height: 1156px;
+                            page-break-inside: avoid;
+                        }
+
+                        .image-item {
+                            max-width: 100%;
+                            display: inline-block;
+                            text-align: center;
+                        }
+
+                        /* ensuring that images move to the next page if needed (for printing) */
+                        @media print {
+                            .resizable-image {
+                                page-break-before: always;
+                            }
+                        }
+                    </style>
+                </head>
+                <body>
+
+                    <div class="image-container">
+                        <table>
+                            <tr>
+                                <td style="text-align: center;" colspan="2">
+                                    <span>
+                                        Test/Inspection<br />
+                                    </span>
+                                    <div class="image-item">
+                                        <img class="resizable-image" src="C:\CalrStahl_Apps\IMSInspectionPhotoUpload\BeforeInspection\13857\CSSSC_NAC_2025_00022_14_BI.jpg" id="imgBefore" name="imgBefore" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="border:none">
+                                    <h3>Findings</h3>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <script>
+        window.onload = function () {
+            var images = document.querySelectorAll(".resizable-image");
+            images.forEach(function (img) {
+                // Check if the image is fully loaded
+                img.onload = function () {
+                    // Get the image dimensions
+                    var imgWidth = img.naturalWidth;
+                    var imgHeight = img.naturalHeight;
+
+                    // Resize the image if it is larger than 1000x1000
+                    if (imgWidth > 500 || imgHeight > 1156) {
+                        // Resize the image to 1000x1000
+                        img.width = 500;
+                        img.height = 1156;
+                    }
+                }
+            });
+        };
+                    </script>
+
+                </body>
+            </html>
+        </tr>
+    </table>
+</div>
+<script>
+        var diffKeys = $("#hidDiffJson").val();
+        var diffKeyArray = diffKeys.split(',');
+        diffKeyArray.forEach(function (key) {
+            $("#" + key).css("color", "red"); // Apply the color to each element
+        });
+</script>
+</body>
+
+</html>
+
+
+
+
