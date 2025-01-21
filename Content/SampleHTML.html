@@ -1309,12 +1309,15 @@
         </tr>
     </table>
 </div>
-<script>
-    var diffKeys = $("#hidDiffJson").val();
-    var diffKeyArray = diffKeys.split(',');
-    diffKeyArray.forEach(function (key) {
-        $("#" + key).css("color", "red"); // Apply the color to each element
-    });
+    <script>
+        var diffKeys = $("#hidDiffJson").val();
+        var diffKeyArray = diffKeys.split(',');
+        diffKeyArray.forEach(function (key) {
+            $("#" + key).css("color", "red"); // Apply the color to each element
+        });
+
+        alert("Hello this is from internal js");
+
 </script>
 </body>
 

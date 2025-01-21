@@ -31,24 +31,25 @@ namespace Select_Pdf_POC
                 // Basic Page Setup
                 converter.Options.PdfPageSize = PdfPageSize.A4;
                 converter.Options.PdfPageOrientation = PdfPageOrientation.Portrait;
-                converter.Options.MarginTop = 20;    // Adjust space for header
-                converter.Options.MarginBottom = 20; // Adjust space for footer
+                converter.Options.MarginTop = 0;    // Adjust space for header
+                converter.Options.MarginBottom = 0; // Adjust space for footer
                 converter.Options.MarginLeft = 40;
                 converter.Options.MarginRight = 40;
 
                 // 1. Simple HTML Header and Footer
                 converter.Options.DisplayHeader = true;
-                converter.Header.Height = 50;
+                converter.Header.Height = 30;
                 converter.Header.FirstPageNumber = 1;
                 converter.Options.DisplayFooter = true;
-                converter.Footer.Height = 10;
+                converter.Footer.Height = 20;
+
 
                 // Convert HTML string to PDF
                 PdfDocument doc = converter.ConvertHtmlString(htmlContent);
 
                 // create a new pdf font
                 PdfFont font2 = doc.AddFont(PdfStandardFont.Helvetica);
-                font2.Size = 12;
+                font2.Size = 10;
                 font2.IsUnderline = true;
 
                 // get image path
@@ -56,10 +57,10 @@ namespace Select_Pdf_POC
 
                 // header template (100 points in height) with image element
                 doc.Header = doc.AddTemplate(doc.Pages[0].ClientRectangle.Width, 100);
-                PdfImageElement img1 = new PdfImageElement(20, 20, imgFile);
+                PdfImageElement img1 = new PdfImageElement(50, 50, imgFile);
                 doc.Header.Add(img1);
 
-//alignment
+                //alignment
                 //PdfImageElement logo = new PdfImageElement(10, 10, 80, 40, imgFile); // (x, y, width, height)
                 //doc.Header.Add(logo);
 
@@ -70,7 +71,11 @@ namespace Select_Pdf_POC
                 doc.Footer.Add(text);
 
                 // Save the PDF document to a file
-                string outputFilePath = "D:\\Select.PDF_POC\\PDF\\output_SampleHtml69.pdf";
+                //---string outputFilePath = "D:\\Select.PDF_POC\\PDF\\'+output_SampleHtml69+'.pdf";
+                string dateTimeNow = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+
+                // Construct the dynamic file path
+                string outputFilePath = $"D:\\Select.PDF_POC\\PDF\\output_{dateTimeNow}.pdf";
                 doc.Save(outputFilePath);
 
                 // Close the document
@@ -97,3 +102,6 @@ namespace Select_Pdf_POC
 
 
 
+//                //auto ofit 
+//converter.Options.AutoFitWidth = HtmlToPdfPageFitMode.AutoFit;
+//converter.Options.AutoFitHeight = HtmlToPdfPageFitMode.AutoFit;
