@@ -5,6 +5,10 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Select_Pdf_POC", "Select_Pdf_POC.csproj", "{77BF9D7C-8E45-49AE-BC90-C47728FA2527}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Select.Pdf_2", "..\Select.Pdf_2\Select.Pdf_2.csproj", "{4F7FC7B3-2ED4-43E6-90B1-EF7691DBB504}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTML_SelectPdf", "..\HTML_SelectPdf\HTML_SelectPdf.csproj", "{476EE2D2-F5EC-4BB3-AB6B-D4293727C227}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{77BF9D7C-8E45-49AE-BC90-C47728FA2527}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77BF9D7C-8E45-49AE-BC90-C47728FA2527}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77BF9D7C-8E45-49AE-BC90-C47728FA2527}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F7FC7B3-2ED4-43E6-90B1-EF7691DBB504}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F7FC7B3-2ED4-43E6-90B1-EF7691DBB504}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F7FC7B3-2ED4-43E6-90B1-EF7691DBB504}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F7FC7B3-2ED4-43E6-90B1-EF7691DBB504}.Release|Any CPU.Build.0 = Release|Any CPU
+		{476EE2D2-F5EC-4BB3-AB6B-D4293727C227}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{476EE2D2-F5EC-4BB3-AB6B-D4293727C227}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{476EE2D2-F5EC-4BB3-AB6B-D4293727C227}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{476EE2D2-F5EC-4BB3-AB6B-D4293727C227}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

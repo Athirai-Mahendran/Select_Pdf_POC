@@ -44,6 +44,7 @@ namespace Select_Pdf_POC
                 converter.Footer.Height = 20;
 
 
+
                 // Convert HTML string to PDF
                 PdfDocument doc = converter.ConvertHtmlString(htmlContent);
 
