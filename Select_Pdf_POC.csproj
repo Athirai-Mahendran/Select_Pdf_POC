@@ -55,6 +55,20 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Calrstahl_images\CSLET_EIAC_Header.jpg" />
+    <Content Include="Content\Calrstahl_images\CSLET_EIAC_HeaderCopy.jpg" />
+    <Content Include="Content\Calrstahl_images\CSSSC_EIAC_Footer.jpg" />
+    <Content Include="Content\images\ai.jpg" />
+    <Content Include="Content\images\desk.jpg" />
+    <Content Include="Content\images\earth.jpg" />
+    <Content Include="Content\images\istoc-techy.jpg" />
+    <Content Include="Content\images\istockphoto.jpg" />
+    <Content Include="Content\images\istockphotss.jpg" />
+    <Content Include="Content\images\network.jpg" />
+    <Content Include="Content\images\refinePics.jpg" />
+    <Content Include="Content\images\tech.jpg" />
+    <Content Include="Content\images\tech1.jpg" />
+    <Content Include="Content\images\written.jpg" />
     <Content Include="Content\SampleHTML.html" />
     <Content Include="Content\SelectPdfDemo.html" />
     <Content Include="Content\style.css" />
