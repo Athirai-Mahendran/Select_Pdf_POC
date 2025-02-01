@@ -1,10 +1,4 @@
-﻿
-
-
-
-
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 <head>
@@ -17,10 +11,10 @@
 
         table {
             border-collapse: collapse;
-            font-size: 17px;
+            font-size: 14px;
             width: 100%;
-            border: 1px;
-        }
+/*            border: 1px;
+*/        }
 
             table td {
                 border: 1px solid black;
@@ -43,12 +37,12 @@
         }
 
         .tdinputfontsize {
-            font-size: 17px !important;
+            font-size: 14px !important;
             font-weight: bold;
         }
 
         .italicDiv {
-            font-size: 16px;
+            font-size: 14px;
             font-style: italic;
             text-align: justify;
         }
@@ -74,8 +68,8 @@
 
         .riskAssement td {
             /* height:25px; */
-            height: 28px;
-            font-size: 15px
+            height: 24px;
+            font-size: 13px
         }
 
         #alert td {
@@ -88,6 +82,7 @@
             align-items: center;
             height: 70px;
             overflow: hidden;
+            color: red;
         }
 
         .element-image {
@@ -108,6 +103,15 @@
             padding: 20px;
             box-sizing: border-box;
         }
+
+        .fa-check-square-o {
+            color: #000;
+            font-size: 18px;
+        }
+
+        .fa-square-o {
+            font-size: 18px;
+        }
     </style>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -115,11 +119,12 @@
 
 <body>
 
+    <div style="page-break-after: avoid; width: 100%;"> </div>
 
     <div class="container" id="pageHeader">
 
-        <p style="font-size:28px;"><b>Certificate of Test and Thorough Examination  of  Mobile/Crawler Crane</b></p>
-        <p style='font-size: 18px;'>This report is in compliance with Local Regulation 2/2010, Ministerial Resolution No.(32) for 1982 and (LOLER)1998</p>
+        <p style="font-size:24px;"><b>Certificate of Test and Thorough Examination  of  Mobile/Crawler Crane</b></p>
+        <p style='font-size: 16px;'>This report is in compliance with Local Regulation 2/2010, Ministerial Resolution No.(32) for 1982 and (LOLER)1998</p>
     </div>
     <div>
         <input type="hidden" id="hidDiffJson" name="hidDiffJson" />
@@ -1309,14 +1314,14 @@
         </tr>
     </table>
 </div>
-    <script>
-        var diffKeys = $("#hidDiffJson").val();
-        var diffKeyArray = diffKeys.split(',');
-        diffKeyArray.forEach(function (key) {
-            $("#" + key).css("color", "red"); // Apply the color to each element
-        });
+<script>
+    var diffKeys = $("#hidDiffJson").val();
+    var diffKeyArray = diffKeys.split(',');
+    diffKeyArray.forEach(function (key) {
+        $("#" + key).css("color", "red"); // Apply the color to each element
+    });
 
-        alert("Hello this is from internal js");
+    alert("Hello this is from internal js");
 
 </script>
 </body>
